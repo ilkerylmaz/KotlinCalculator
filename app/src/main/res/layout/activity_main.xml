@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/backgroundcolor">
 
 
     <LinearLayout
@@ -17,20 +18,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/muklogo"
+            android:layout_gravity="center"/>
 
         <TextView
             android:id="@+id/processEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
-            android:layout_marginBottom="24dp"
+            android:textColor="@color/kremsi"
             android:textAlignment="textEnd"
             android:textSize="50sp"
             tools:text="2+5" />
 
+
         <TextView
             android:id="@+id/liveResultEditText"
             android:layout_width="match_parent"
+            android:textColor="@color/kremsi"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="24dp"
@@ -43,7 +51,6 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#9B9B9B"
         android:orientation="vertical"
         android:paddingTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -153,12 +160,16 @@
                 app:cardCornerRadius="36dp"
                 app:cardElevation="2dp">
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/arrow"
-                    android:contentDescription="@string/back_delete_icon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⌫"
+                    android:textSize="40dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="2dp"
+                    android:textAlignment="center"
+                    android:textColor="#E60B0B"
+                    android:layout_gravity="center_horizontal"/>
             </androidx.cardview.widget.CardView>
 
             <Space

@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="start">#14181B</color>
+    <color name="finish">#55595D</color>
+    <color name="kremsi">#D8DDDC</color>
+    <color name="grayimsi">#3C3D37</color>
+
 </resources>
