@@ -31,15 +31,15 @@ class MainActivity : AppCompatActivity() {
             btn9.appendClick("9")
             btnDot.appendClick(".")
             btnAddition.appendClick("+")
-            btnDivision.appendClick("/")
+            btnDivision.appendClick("÷")
             btnSubtraction.appendClick("-")
-            btnMultiplication.appendClick("X")
+            btnMultiplication.appendClick("x")
             btnBrackets.appendClick("(")
-            btnBrackets.setOnLongClickListener{
+            btnBrackets.setOnLongClickListener {
                 binding.processEditText.append(")")
                 true
             }
-            btnAC.setOnClickListener{
+            btnAC.setOnClickListener {
                 //girdi ekranı ile sonuç ekranını sıfırlama kodu.
                 binding.processEditText.text = null
                 binding.liveResultEditText.text = null
@@ -48,32 +48,32 @@ class MainActivity : AppCompatActivity() {
                 //girdi verisini stringe çevirip "expression" değişkenine atadık.
                 val expression = processEditText.text.toString()
                 //ekran boş değilse ?
-                if(expression.isNotEmpty()){
+                if (expression.isNotEmpty()) {
                     //girdi ekranına önceki değerin son indeksini silip atadık.
-                    processEditText.text = expression.substring(0,expression.length - 1)
+                    processEditText.text = expression.substring(0, expression.length - 1)
                 }
             }
             btnResult.setOnClickListener {
-                try {
-                    //girdi metni ExpressiBuilder() fonksiyonu ile kullanılabilir hale dönüştürülür.
-                    val expression = ExpressionBuilder(binding.processEditText.text.toString()).build()
-                    //evaluate() kullanılabilir metnin sonucunu oluşturur.
-                    val result = expression.evaluate()
-                    //sonucu integer değere dönüştürür.
-                    val longResult = result.toLong()
+                val netExpression = binding.processEditText.text.toString()
+                    .replace("x","*")
+                    .replace("÷", "/")
+                //girdi metni ExpressiBuilder() fonksiyonu ile kullanılabilir hale dönüştürülür.
+                val expression = ExpressionBuilder(netExpression).build()
+                //evaluate() kullanılabilir metnin sonucunu oluşturur.
+                val result = expression.evaluate()
+                //sonucu integer değere dönüştürür.
+                val longResult = result.toLong()
 
-                    //sonuç ondalıklı mı tam sayı mı sorgusu.
-                    if(result == longResult.toDouble()){
-                        binding.liveResultEditText.text = longResult.toString()
-                    }else{
-                        binding.liveResultEditText.text = result.toString()
-                    }
-                }catch (e:Exception){
-                    Log.d("Expection", "Message: ${e.message}")
+                //sonuç ondalıklı mı tam sayı mı sorgusu.
+                if (result == longResult.toDouble()) {
+                    binding.liveResultEditText.text = longResult.toString()
+                } else {
+                    binding.liveResultEditText.text = result.toString()
                 }
             }
         }
     }
+
     //fazla tekrardan kaçınmak için oluşturulmuş fonksiyon.
     private fun View.appendClick(string: String) {
         setOnClickListener {

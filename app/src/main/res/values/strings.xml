@@ -10,10 +10,10 @@
     <string name="seven">7</string>
     <string name="eight">8</string>
     <string name="nine">9</string>
-    <string name="division">/</string>
+    <string name="division">÷</string>
     <string name="subtraction">-</string>
     <string name="addiction">+</string>
-    <string name="multiplication">X</string>
+    <string name="multiplication">x</string>
     <string name="brackets">( )</string>
     <string name="dot">.</string>
     <string name="AC">AC</string>
